@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% block formulario %}
+
+        <h1>Realize o cadastro do produto</h1>
+        <form method="POST">
+            
+            {{ form.hidden_tag() }}
+
+            <div class="container_form">
+            <label for="nome">{{ form.nome.label }}</label>
+            {{ form.nome() }}<br>
+            </div>
+
+            <div class="container_form">
+            <label for="descricao">{{ form.descricao.label }}</label>
+            {{ form.descricao()}}<br>
+            </div>
+                
+            <div class="container_form">
+            <label for="valor">{{ form.valor.label }}</label>
+            {{ form.valor()}}<br>
+            </div>
+
+            <div class="container_form">
+            <label for="disponibilidade">{{ form.disponibilidade.label}}</label>
+            {{ form.disponibilidade()}}<br>
+            </div>
+            
+            <div class="botao">
+            {{ form.botao() }}
+            </div>
+
+        </form>
+    {% endblock %}
+</body>
+</html>

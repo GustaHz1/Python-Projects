@@ -1,0 +1,90 @@
+/* Define um estilo padrão para todos os elementos */
+* {
+    padding: 0; /* Remove espaçamento interno padrão */
+    margin: 0; /* Remove margens padrão */
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo do tamanho total */
+}
+
+/* Estilo para o corpo da página */
+body {
+    font-family: 'Montserrat', sans-serif; 
+    color: #333; 
+    background-color: #f4f4f9; 
+    padding: 20px; /* Espaçamento interno */
+    display: flex; /* Centraliza os elementos */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa toda a altura da janela */
+}
+
+/* Estilo para o título */
+h1 {
+    font-size: 24px; 
+    text-align: center; 
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    color: #222; 
+}
+
+/* Estilo para o contêiner do formulário */
+.container_form {
+    width: 90%; /* Largura relativa à tela */
+    max-width: 400px; /* Limita a largura máxima */
+    background-color: white; 
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex; /* Exibe os elementos como um flexbox */
+    flex-direction: column; /* Alinha os elementos na vertical */
+    align-items: stretch; /* Estica os elementos para preencher a largura */
+    row-gap: 15px; /* Espaçamento entre os elementos */
+}
+
+/* Estilo para os inputs e labels do formulário */
+.container_form input, 
+.container_form label {
+    width: 100%; 
+    font-size: 14px; 
+}
+
+/* Estilo para o botão */
+.botao {
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; 
+    font-weight: bold; 
+    color: white; 
+    background-color: #333;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    text-align: center; 
+    transition: all 0.3s ease; /* Adiciona uma transição suave */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.botao:hover {
+    background-color: #555; 
+    transform: scale(1.05); /* Aumenta o tamanho levemente */
+}
+
+/* Estilo para a lista */
+.lista {
+    margin-top: 20px; /* Espaçamento acima */
+    padding: 10px 20px; /* Espaçamento interno */
+    background-color: white; 
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    list-style-type: none; /* Remove os marcadores padrão */
+}
+
+/* Estilo para os itens da lista */
+.lista li {
+    font-size: 16px; 
+    margin-bottom: 10px; /* Espaçamento entre itens */
+    border-bottom: 1px solid #eee; /* Linha divisória abaixo de cada item */
+    padding: 5px 0; /* Espaçamento interno */
+}
+
+/* Remove a linha do último item da lista */
+.lista li:last-child {
+    border-bottom: none;
+}
