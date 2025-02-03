@@ -1,49 +1,64 @@
 import time
 import pyautogui
-from pyautogui import write, click, press
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from tkinter import *
+from tkinter import ttk
+import customtkinter as ctk
+
+ctk.set_appearance_mode("dark")
+
+# Criando a janela principal
+janela = ctk.CTk()
+janela.title("Automação de Tarefas")
+janela.geometry("300x350") 
+
+# Criando um campo de entrada
+Label(janela, text="Digite sua pesquisa:", bg="#555", fg="white", borderwidth=3, relief="ridge", ).pack(pady=5)
+entrada = Entry(janela, width=30, bg="#555", fg="white", borderwidth=3, relief="ridge")
+entrada.pack(pady=5)
+
+# Melhorando a parte visual da janela
+style = ttk.Style()
+style.theme_use("clam")
+# Cor preta
+janela.configure(bg="#2E2E2E")
 
 def google():
-    pesquisa = input("Pesquisa: ")
+    pesquisa = entrada.get() 
 
     pyautogui.PAUSE = 1
 
-    # Abrindo o Chrome
     pyautogui.press("win")
     pyautogui.write("chrome")
     pyautogui.press("enter")
 
-    # Aguardando 3 segundos para evitar erros
-    time.sleep(3)
 
-    # Selecionando a barra de pesquisa e inserindo a pesquisa desejada 
+    time.sleep(3)
+    
     pyautogui.click(x=438, y=370)
     pyautogui.write(pesquisa)
     pyautogui.press("enter")
 
 def youtube():
-    pesquisa_youtube = input("Pesquisa: ")
+    pesquisa_youtube = entrada.get() 
     
-    # Abrindo o navegador 
     driver = webdriver.Chrome()
-    
-    # Abrindo o youtube 
+
     driver.get('https://www.youtube.com')
     
-    # Esperando a página ser carregada
+    
     time.sleep(3)
     
     resultado_youtube = driver.find_element(By.XPATH, '//*[@id="center"]/yt-searchbox/div[1]/form/input')
     resultado_youtube.send_keys(pesquisa_youtube)
-    # Pressiona o enter
-    resultado_youtube.send_keys(Keys.RETURN)
+    resultado_youtube.send_keys(Keys.RETURN)  
     
     driver.fullscreen_window()
 
 def chatgpt():
-    pesquisa_chat = input("Pesquisa: ")
+    pesquisa_chat = entrada.get() 
     
     pyautogui.PAUSE = 1
     
@@ -56,7 +71,7 @@ def chatgpt():
     
     time.sleep(3)
     
-    pyautogui.write('https://chatgpt.com')
+    pyautogui.write('https://chat.openai.com')
     pyautogui.press("enter")
     
     time.sleep(3)
@@ -65,15 +80,12 @@ def chatgpt():
     pyautogui.press("enter")
 
 def github():
-    
     driver = webdriver.Chrome()
-    
     driver.get('https://github.com/GustaHz1')
-    
     driver.fullscreen_window()
 
 def spotify():
-    pesquisar_musica = input("Escolha a musica: ")
+    pesquisar_musica = entrada.get()  
     
     pyautogui.PAUSE = 1
     
@@ -83,35 +95,23 @@ def spotify():
     
     time.sleep(6)
     
-    pyautogui.click(x=577, y=30)
+    pyautogui.hotkey('ctrl', 'k')
+    time.sleep(2)
     pyautogui.write(pesquisar_musica)
+    time.sleep(2)
     pyautogui.press('enter')
-    
-    time.sleep(3)
-    
-    pyautogui.click(x=916, y=214)
+    pyautogui.press('enter')
 
-while True:
-    escolha = input("""
-         [1]Pesquisar no Google
-         [2]Pesquisar no Youtube
-         [3]Pergunte ao ChatGPT
-         [4]Entrar no GitHub
-         [5]Abrir Spotify
-         [6]Sair
-         Escolha: """)
     
-    if escolha == "1":
-        google()
-    elif escolha == "2":
-        youtube()
-    elif escolha == "3":
-        chatgpt()
-    elif escolha == "4":
-        github()
-    elif escolha == "5":
-        spotify()
-    elif escolha == "6":
-        break
-    else:
-        print("Opção inválida!")
+    
+   
+
+# Criando botões para cada ação
+Button(janela, text="Pesquisar no Google",bg="#555", fg="white", borderwidth=3, relief="ridge", command=google).pack(pady=10)
+Button(janela, text="Pesquisar no Youtube",bg="#555", fg="white", borderwidth=3, relief="ridge", command=youtube).pack(pady=10)
+Button(janela, text="Pesquisar no ChatGPT",bg="#555", fg="white", borderwidth=3, relief="ridge", command=chatgpt).pack(pady=10)
+Button(janela, text="Abrir o GitHub",bg="#555", fg="white", borderwidth=3, relief="ridge", command=github).pack(pady=10)
+Button(janela, text="Tocar Música no Spotify",bg="#555", fg="white", borderwidth=3, relief="ridge", command=spotify).pack(pady=10)
+
+# Iniciando a interface gráfica
+janela.mainloop()

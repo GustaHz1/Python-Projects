@@ -1,6 +1,5 @@
 import pyautogui
 import time
-import pandas as pd
 #pega o retorno da posicao atual de x e y do mouse e passa o valor para as duas variaveis
 print('Posicione o MOUSE')
 time.sleep(5)
