@@ -1,7 +1,5 @@
 import pandas as pd
-import pyautogui
 import selenium
-from pyautogui import click, press, write
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
@@ -29,7 +27,6 @@ for linha in tabela.index:
     primeiro_nome_campo = driver.find_element(By.XPATH, "//input[@ng-reflect-name = 'labelFirstName']")
     # Enviando as informações
     primeiro_nome_campo.send_keys(primeiro_nome)
-   #primeiro_nome_campo.send_keys(Keys.ENTER)
     
     # Variavel recebendo o valor da linha do DataFrame
     ultimo_nome = tabela.loc[linha, "Last Name "]
@@ -37,7 +34,6 @@ for linha in tabela.index:
     ultimo_nome_campo = driver.find_element(By.XPATH, "//input[@ng-reflect-name = 'labelLastName']")
     # Enviando as informações
     ultimo_nome_campo.send_keys(ultimo_nome)
-    #ultimo_nome_campo.send_keys(Keys.ENTER)
     
     # Variavel recebendo o valor da linha do DataFrame
     empresa = tabela.loc[linha, "Company Name"]
@@ -50,7 +46,6 @@ for linha in tabela.index:
         )
      
         empresa_campo.send_keys(empresa)
-        #empresa_campo.send_keys(Keys.ENTER)
     
     except Exception as e:
         print(f"Campo não encontrado! {e}")
@@ -61,7 +56,6 @@ for linha in tabela.index:
     funcao_campo = driver.find_element(By.XPATH, "//input[@ng-reflect-name = 'labelRole']")
     # Enviando as informações
     funcao_campo.send_keys(funcao)
-    #funcao_campo.send_keys(Keys.ENTER)
     
     # Variavel recebendo o valor da linha do DataFrame
     endereco = tabela.loc[linha, "Address"]
@@ -69,7 +63,6 @@ for linha in tabela.index:
     endereco_campo = driver.find_element(By.XPATH, "//input[@ng-reflect-name = 'labelAddress']")
     # Enviando as informações
     endereco_campo.send_keys(endereco)
-    #endereco_campo.send_keys(Keys.ENTER)
     
     # Variavel recebendo o valor da linha do DataFrame
     email = tabela.loc[linha, "Email"]
@@ -77,7 +70,6 @@ for linha in tabela.index:
     email_campo = driver.find_element(By.XPATH, "//input[@ng-reflect-name = 'labelEmail']")
     # Enviando as informações
     email_campo.send_keys(email)
-    #email_campo.send_keys(Keys.ENTER)
     
     # Variavel recebendo o valor da linha do DataFrame
     numero = tabela.loc[linha, "Phone Number"]
@@ -85,6 +77,7 @@ for linha in tabela.index:
     numero_campo = driver.find_element(By.XPATH, "//input[@ng-reflect-name = 'labelPhone']")
     # Enviando as informações
     numero_campo.send_keys(str(numero))
-    #numero_campo.send_keys(Keys.ENTER)
     
     driver.find_element(By.XPATH, '/html/body/app-root/div[2]/app-rpa1/div/div[2]/form/input').click()
+    
+time.sleep(10)
