@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form method="post">
+        <select name="turno">
+            <option for="turno">Selecione o turno</option>
+            <option value="1° Primeiro">1° Turno</option>
+            <option value="2° Primeiro">2° Turno</option>
+            <option value="3° Primeiro">3° Turno</option>
+        </select><BR>
+
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data"><br>
+
+        <label for="transportadora">Transportadora:</label><br>
+        <input type="text" id="transportadora" name="transportadora"><br>
+
+        <select name="segmento">
+            <option for="segmento">Segmento</option>
+            <option value="4W">4W</option>
+            <option value="2W">2W</option>
+        </select><BR>
+        
+        <label for="fornecedor">Fornecedor:</label><br>
+        <input type="text" id="fornecedor" name="fornecedor"><br>
+
+        <label for="placa">Placa:</label><br>
+        <input type"text" id="placa" name="placa"><br>
+
+        <label for="portaria">Liberação portaria:</label><br>
+        <input type="time" id="portaria" name="portaria"><br>
+
+        <label for="chegada_doca">Horario de chegada na doca:</label><br>
+        <input type="time" id="chegada_doca" name="chegada_doca"><br>
+
+        <label for="saida">Horario de saida da doca:</label><br>
+        <input type="time" id="saida" name="saida"><br>
+
+        <label for="volume">Quantidade de volume:</label><br>
+        <input type="value" id="volume" name="volume"><br>
+
+        <label for="tipo">Tipo de carga:</label><br>
+        <input type="text" id="tipo" name="tipo"><br>
+
+        <select name="veiculo">
+            <option for="veiculo">Tipo de veículo</option>
+            <option value="CARRETA">CARRETA</option>
+            <option value="FIORINO">FIORINO</option>
+            <option value="TRUCK">TRUCK</option>
+            <option value="TOCO">TOCO</option>
+            <option value="VAN">VAN</option>
+            <option value="CONTAINER">CONTAINER</option>
+            <option value="3/4">3/4</option>
+        </select><BR>
+
+        <label for="responsavel">Responsavel:</label><br>
+        <input type="text" id="responsavel" name="responsavel"><br>
+
+        <label for="motorista">motorista:<label><br>
+        <input type="text" id="motorista" name="motorista"><br>
+
+        <select name="origem">
+            <option for="origem">Origem da carga</option>
+            <option value="SP">SP</option>
+            <option value="AM">AM</option>
+            <option value="IMPORTADO">IMPORTADO</option>
+        </select><BR>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+</body>
+</html>
