@@ -1,0 +1,2 @@
+Arquivo manipulado com boas práticas.
+Não é necessário chamar close().
